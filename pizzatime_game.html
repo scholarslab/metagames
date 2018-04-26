@@ -1,0 +1,134 @@
+﻿<!--save as html file-->
+<html  dir="auto" >
+<head>
+<link rel="icon"
+      type="image/png"
+      href="favicon.png">
+<title>IT'S PIZZA TIME</title>
+<style>
+	body {
+		margin:40px;
+		padding:40px;
+	}
+</style>
+<script>
+
+var embedDat = "%7B%22START%22:%5B%5B%22It's%20pizza%20time!%20Go%20get%20'em!%22%5D,%5B%22%22%5D,%5B%22YEAH%20IT'S%20PIZZA%20TIME%22,%22PIZZAJOINT%22%5D,%5B%22Nah...%20not%20really%20feelin%20pizza...%22,%22NETHERWORLD%22%5D,%5B%22%22%5D%5D,%22__STARTSECTION__%22:%22START%22,%22NETHERWORLD%22:%5B%5B%22You%20awaken%20floating%20in%20the%20surface%20of%20an%20immense,%20endless%20ocean.%20The%20sky%20is%20gray.%20The%20water%20is%20gray.%20There%20is%20no%20pizza%20anywhere%20in%20sight.%20Because%20this%20is%20your%20first%20day%20in%20a%20no-pizza%20netherworld%20purgatory.%20And%20there's%20no%20going%20back...%20unless...!!%22%5D,%5B%22%22%5D,%5B%22It%20actually%20IS%20pizza%20time%20LET'S%20DO%20IT!!%22,%22PIZZAJOINT%22%5D,%5B%22Well...%20I%20guess%20anything%20is%20better%20than%20this%20weird%20infinite%20ocean%22,%22PIZZAJOINT%22%5D,%5B%22%22%5D%5D,%22PIZZAJOINT%22:%5B%5B%22You%20are%20in%20a%20most%20excellent%20pizza%20joint.%20You%20are%20VERY%20hungry.%20But%20it's%20lunch%20rush%20hour!%20There's%20a%20line%20at%20the%20counter.%20And%20only%20one%20free%20table...%20AND%20you%20have%20to%20use%20the%20bathroom!!%20What%20are%20you%20gonna%20do??%22%5D,%5B%22%22%5D,%5B%22Gotta%20have%20somewhere%20to%20sit,%20right?%20Table%20it!!%22,%22TABLE%22%5D,%5B%22Nature%20has%20CALLED.%20Bathroom!%22,%22BATHROOM%22%5D,%5B%22Forget%20everything%20else,%20to%20the%20counter!%20It's%20pizza%20time!!%22,%22COUNTER%22%5D,%5B%22%22%5D%5D,%22TABLE%22:%5B%5B%22The%20table%20thing%20was%20a%20joke!%20This%20isn't%20that%20kind%20of%20pizza%20joint!!%20Go%20get%20your%20pizza!!!%22%5D,%5B%22%22%5D,%5B%22YEAH%20YEAH%20YEAH%22,%22COUNTER%22%5D,%5B%22Uh...%20ok?%22,%22COUNTER%22%5D,%5B%22%22%5D%5D,%22BATHROOM%22:%5B%5B%22Bathroom%20time.%20Pretty%20grimy.%20Mission%20accomplished.%20PIZZA%20PIZZA%20PIZZA%20PIZZA%22%5D,%5B%22%22%5D,%5B%22Back%20to%20the%20...%20counter?%20Is%20that%20what%20you%20mean?%22,%22COUNTER%22%5D,%5B%22I%20kind%20of%20feel%20like%20sitting%20down%20tho%22,%22TABLE%22%5D,%5B%22%22%5D%5D,%22COUNTER%22:%5B%5B%22This%20line%20is%20the%20worst!%20You%20want%20your%20PIZZA!!%20But%20it's%20finally%20your%20turn...%20phew.%20What%20kinda%20pizza%20do%20you%20want?%22%5D,%5B%22%22%5D,%5B%22Pepperoni.%20Just.%20Pepperoni.%22,%22MEAT%22%5D,%5B%22Mushroom,%20green%20peppers,%20onion,%20banana%20peppers,%20artichoke%20hearts%20spina...%22,%22VEGETABLE%22%5D,%5B%22Pineapples%20+%20anchovies,%20all%20in%22,%22PINEAPPLE%22%5D,%5B%22I%20kind%20of%20want%20to%20know%20how%20they%20make%20the%20pizza.%20Wood%20fired%20ovens?%22,%22OVEN%22%5D,%5B%22%22%5D%5D,%22OVEN%22:%5B%5B%22You%20climbed%20over%20the%20counter%20and%20tripped%20face%20first%20into%20the%20oven!!%20What%20are%20you%20doin%20back%20here%20anyways??%20Go%20back%20to%20the%20end%20of%20the%20line!%22%5D,%5B%22%22%5D,%5B%22Oh%20no!!%22,%22COUNTER%22%5D,%5B%22Ok...%22,%22COUNTER%22%5D,%5B%22%22%5D%5D,%22MEAT%22:%5B%5B%22Pepperoni.%20Classic.%20Amazing.%20Delish.%22%5D,%5B%22%22%5D,%5B%22Yay!%22,%22END%22%5D,%5B%22%22%5D%5D,%22VEGETABLE%22:%5B%5B%22Wow%20that's...%20a%20lot%20of%20veggies.%20But%20they're%20AMAZING%20veggies.%20So%20good!%20Amazing.%20Delish.%20This%20pizza%20joint.%22%5D,%5B%22%22%5D,%5B%22Cool!%22,%22END%22%5D,%5B%22%22%5D%5D,%22PINEAPPLE%22:%5B%5B%22You%20are%20one%20bad,%20hardcore,%20never-back-down%20pizza%20eater.%20You%20all-in-ed%20on%20the%20most%20INTENSE%20pizza%20around,%20and%20you%20don't%20regret%20it.%20Congratulations.%22%5D,%5B%22%22%5D,%5B%22Sweet%22,%22END%22%5D,%5B%22%22%5D%5D,%22END%22:%5B%5B%22IT'S%20PIZZA%20TIME!!!%22%5D%5D%7D";
+
+var gameState = null;
+
+
+var aurl = document.createElement('a');
+function qualifyURL(url) {
+ aurl.href = url;
+ return aurl.href;
+}
+
+function getParameterByName(name) {
+    name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        results = regex.exec(location.search);
+    return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+
+function strip_http(url) {
+   url = url.replace(/^https?:\/\//,'');
+   return url;
+}
+
+function startSection(){
+  if (gameState==null){
+    return "";
+  }
+  var param = getParameterByName("section");
+
+  var result = "__STARTSECTION__" in gameState ? gameState["__STARTSECTION__"] : "START";
+  if (param.length>0){
+    result=param;
+  }
+
+  return result;
+}
+
+function init(){
+	if (embedDat.length>0 && embedDat[0]!=='_'){
+		var dat = decodeURI(embedDat);
+		gameState = JSON.parse(dat);
+    var startKey = startSection();
+		goTo(startKey);
+		return;
+	}
+
+var id = getParameterByName("p").replace(/[\\\/]/,"");
+  if (id===null||id.length===0) {
+    console.log("No ID specified in URL.")
+    return;
+  }
+
+  var githubURL = 'https://api.github.com/gists/'+id;
+
+  var githubHTTPClient = new XMLHttpRequest();
+  githubHTTPClient.open('GET', githubURL);
+  githubHTTPClient.onreadystatechange = function() {
+    if(githubHTTPClient.readyState!=4) {
+      return;
+    }
+    var result = JSON.parse(githubHTTPClient.responseText);
+    if (githubHTTPClient.status===403) {
+      console.log(result.message);
+    } else if (githubHTTPClient.status!==200&&githubHTTPClient.status!==201) {
+      console.log("HTTP Error "+ githubHTTPClient.status + ' - ' + githubHTTPClient.statusText);
+    }
+    var result = JSON.parse(githubHTTPClient.responseText);
+    var code=result["files"]["game.txt"]["content"];
+    console.log(code);
+
+	gameState = JSON.parse(code);
+	goTo(startSection());
+  }
+  githubHTTPClient.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+  githubHTTPClient.send();
+
+	goTo(startSection());
+}
+
+function escapeHtmlEntities (str) {
+  if (typeof jQuery !== 'undefined') {
+    // Create an empty div to use as a container,
+    // then put the raw text in and get the HTML
+    // equivalent out.
+    return jQuery('<div/>').text(str).html();
+  }
+
+  // No jQuery, so use string replace.
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/>/g, '&gt;')
+    .replace(/</g, '&lt;')
+    .replace(/"/g, '&quot;');
+}
+
+function goTo(targetState){
+  if (gameState==null){
+    return;
+  }
+	var curstate = gameState[targetState];
+	var gameArea = document.getElementById("gameArea");
+	var str = "";
+	for (var i=0;i<curstate.length;i++){
+		var l = curstate[i];
+		if (l.length==1){
+			str+=escapeHtmlEntities(l[0])+"<br>";
+		} else if (l.length==2){
+			str+='<a href="#" onclick="goTo(\''+escapeHtmlEntities(l[1])+'\');return false;">'+escapeHtmlEntities(l[0])+'</a><br>';
+		}
+	}
+	gameArea.innerHTML=str;
+}
+
+</script>
+</head>
+<body onload="init();" dir="auto">
+<div id="gameArea" dir="auto"></div>
+</body>
+</html>
