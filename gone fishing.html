@@ -1,8 +1,8 @@
 ﻿<!--save as html file-->
 <html  dir="auto" >
 <head>
-<link rel="icon" 
-      type="image/png" 
+<link rel="icon"
+      type="image/png"
       href="favicon.png">
 <title>game</title>
 <style>
@@ -13,7 +13,7 @@
 </style>
 <script>
 
-var embedDat = "%7B%22START%22:%5B%5B%22You%20wake%20in%20a%20locked%20room.%20You%20see%20a%20door%20and%20a%20window.%22%5D,%5B%22%22%5D,%5B%22Go%20to%20the%20door%22,%22DOOR%22%5D,%5B%22Go%20to%20the%20window%22,%22WINDOW%22%5D,%5B%22%22%5D%5D,%22__STARTSECTION__%22:%22START%22,%22WINDOW%22:%5B%5B%22You%20see%20a%20variety%20of%20marine%20life.%20A%20fish%20swims%20by%20and%20looks%20in%20at%20you.%20The%20fish%20meets%20your%20gaze%20solemnly.%22%5D,%5B%22%22%5D,%5B%22Gaze%20back%22,%22START%22%5D,%5B%22%22%5D%5D,%22DOOR%22:%5B%5B%22It's%20a%20door%20what%20did%20you%20expect.%22%5D,%5B%22%22%5D,%5B%22Accept%20this%20as%20truth%22,%22START%22%5D,%5B%22Fight%20the%20inevitable%22,%22CAPTAIN%22%5D,%5B%22%22%5D%5D,%22CAPTAIN%22:%5B%5B%22You%20swing%20the%20door%20open%20and%20you%20see%20a%20tall%20figure.%22%5D,%5B%22%22%5D,%5B%22Approach%20him%22,%22FISH%22%5D,%5B%22Think%20about%20life%22,%22START%22%5D,%5B%22%22%5D%5D,%22FISH%22:%5B%5B%22You%20approach%20the%20figure.%20It%20turns%20to%20face%20you%20and%20you%20a%20giant%20fish%20wearing%20a%20pirate%20hat.%20it's%20glazed%20fish%20eyes%20look%20at%20you%20with%20a%20vacant%20expression.%22%5D,%5B%22%22%5D,%5B%22Scream%22,%22START%22%5D,%5B%22Question%20your%20own%20existence%22,%22END%22%5D,%5B%22%22%5D%5D,%22END%22:%5B%5B%22You%20look%20down,%20beholding%20your%20own%20fins.%20You%20try%20to%20make%20a%20sound%20and%20hear%20only%20a%20burble.%20Your%20fish%20eyes%20stare%20at%20the%20fish%20captain.%22%5D,%5B%22%22%5D,%5B%22Fish%22,%22START%22%5D%5D%7D";
+var embedDat = "%7B%22START%22:%5B%5B%22You%20wake%20in%20a%20locked%20room.%20You%20see%20a%20door%20and%20a%20window.%22%5D,%5B%22%22%5D,%5B%22Go%20to%20the%20door%22,%22DOOR%22%5D,%5B%22Go%20to%20the%20window%22,%22WINDOW%22%5D,%5B%22%22%5D%5D,%22__STARTSECTION__%22:%22START%22,%22WINDOW%22:%5B%5B%22You%20see%20a%20variety%20of%20marine%20life.%20A%20fish%20swims%20by%20and%20looks%20in%20at%20you.%20The%20fish%20meets%20your%20gaze%20solemnly.%22%5D,%5B%22%22%5D,%5B%22Gaze%20back%22,%22START%22%5D,%5B%22%22%5D%5D,%22DOOR%22:%5B%5B%22It's%20a%20door%20what%20did%20you%20expect.%22%5D,%5B%22%22%5D,%5B%22Accept%20this%20as%20truth%22,%22START%22%5D,%5B%22Fight%20the%20inevitable%22,%22CAPTAIN%22%5D,%5B%22%22%5D%5D,%22CAPTAIN%22:%5B%5B%22You%20swing%20the%20door%20open%20and%20you%20see%20a%20tall%20figure.%22%5D,%5B%22%22%5D,%5B%22Approach%20him%22,%22FISH%22%5D,%5B%22Think%20about%20life%22,%22START%22%5D,%5B%22%22%5D%5D,%22FISH%22:%5B%5B%22You%20approach%20the%20figure.%20It%20turns%20to%20face%20you%20and%20you%20a%20giant%20fish%20wearing%20a%20pirate%20hat.%20Its%20glazed%20fish%20eyes%20look%20at%20you%20with%20a%20vacant%20expression.%22%5D,%5B%22%22%5D,%5B%22Scream%22,%22START%22%5D,%5B%22Question%20your%20own%20existence%22,%22END%22%5D,%5B%22%22%5D%5D,%22END%22:%5B%5B%22You%20look%20down,%20beholding%20your%20own%20fins.%20You%20try%20to%20make%20a%20sound%20and%20hear%20only%20a%20burble.%20Your%20fish%20eyes%20stare%20at%20the%20fish%20captain.%22%5D,%5B%22%22%5D,%5B%22Fish%22,%22START%22%5D%5D%7D";
 
 var gameState = null;
 
@@ -72,7 +72,7 @@ var id = getParameterByName("p").replace(/[\\\/]/,"");
   githubHTTPClient.onreadystatechange = function() {
     if(githubHTTPClient.readyState!=4) {
       return;
-    }   
+    }
     var result = JSON.parse(githubHTTPClient.responseText);
     if (githubHTTPClient.status===403) {
       console.log(result.message);
@@ -90,7 +90,7 @@ var id = getParameterByName("p").replace(/[\\\/]/,"");
   githubHTTPClient.send();
 
 	goTo(startSection());
-}	
+}
 
 function escapeHtmlEntities (str) {
   if (typeof jQuery !== 'undefined') {
@@ -117,11 +117,11 @@ function goTo(targetState){
 	var str = "";
 	for (var i=0;i<curstate.length;i++){
 		var l = curstate[i];
-		if (l.length==1){			
+		if (l.length==1){
 			str+=escapeHtmlEntities(l[0])+"<br>";
 		} else if (l.length==2){
 			str+='<a href="#" onclick="goTo(\''+escapeHtmlEntities(l[1])+'\');return false;">'+escapeHtmlEntities(l[0])+'</a><br>';
-		}	
+		}
 	}
 	gameArea.innerHTML=str;
 }
