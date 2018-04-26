@@ -1,0 +1,134 @@
+﻿<!--save as html file-->
+<html  dir="auto" >
+<head>
+<link rel="icon" 
+      type="image/png" 
+      href="favicon.png">
+<title>game</title>
+<style>
+	body {
+		margin:40px;
+		padding:40px;
+	}
+</style>
+<script>
+
+var embedDat = "%7B%22START%22:%5B%5B%22You%20are%20looking%20to%20get%20off%20world%20on%20an%20adventure%20to%20escape%20your%20mundane%20earth-bound%20life.%22%5D,%5B%22%22%5D,%5B%22Go%20to%20the%20Spaceport!%22,%22SPACEPORT%22%5D,%5B%22%22%5D%5D,%22__STARTSECTION__%22:%22START%22,%22SPACEPORT%22:%5B%5B%22Around%20you%20there%20are%20dozens%20of%20spacecraft,%20some%20sleek%20and%20new,%20and%20some%20old%20and%20ratty.%20You're%20overwhelmed%20with%20choices,%20and%20as%20you%20walk,%20crew%20members%20from%20each%20craft%20try%20to%20convince%20you%20to%20join%20them%20on%20their%20cruise.%22%5D,%5B%22%22%5D,%5B%22You%20move%20through%20without%20making%20eye%20contact%20any%20more%20than%20you%20can%20help.%20You%20only%20have%20a%20little%20bit%20of%20money,%20and%20you're%20sure%20you%20can't%20afford%20a%20berth%20on%20the%20newer%20ships.%22%5D,%5B%22%22%5D,%5B%22At%20the%20end%20of%20the%20row%20of%20ships,%20you%20see%20an%20old%20ship%20of%20classic%20make.%20The%20crew%20member%20outside%20is%20sitting%20on%20a%20lounge%20chair%20with%20a%20large%20paper%20umbrella.%22%5D,%5B%22%22%5D,%5B%22%5C%22You're%20coming%20with%20us,%5C%22%20she%20says.%22%5D,%5B%22%5C%22Beg%20pardon?%5C%22%22%5D,%5B%22%5C%22I%20said,%20You're%20coming%20with%20us!%5C%22%22%5D,%5B%22%5C%22What%20makes%20you%20think%20that?%5C%22%22%5D,%5B%22%5C%22Well,%20you%20walked%20past%20all%20the%20other%20ships,%20and%20you%20don't%20seem%20interested%20in%20destinations,%20so%20you%20just%20want%20to%20go,%20and%20you%20like%20the%20look%20of%20my%20ship.%5C%22%22%5D,%5B%22%5C%22How%20much?%5C%22%22%5D,%5B%22%5C%22Twenty%20credits.%5C%22%22%5D,%5B%22%22%5D,%5B%22keep%20looking%22,%22START%22%5D,%5B%22%22%5D,%5B%22go%20to%20the%20ship%22,%22ENTRY%20RAMP%22%5D,%5B%22%22%5D%5D,%22ENTRY%20RAMP%22:%5B%5B%22The%20ramp%20isn't%20steep%20or%20long,%20but%20the%20interior%20of%20the%20ship%20is%20dark,%20nonetheless.%20You%20shoulder%20your%20bag%20and%20make%20your%20way%20inside.%22%5D,%5B%22%22%5D,%5B%22Enter%20the%20cargo%20bay%22,%22CARGO%20BAY%22%5D,%5B%22%22%5D%5D,%22CARGO%20BAY%22:%5B%5B%22Inside,%20there's%20another%20crew%20member,%20the%20first%20officer,%20directing%20other%20passengers%20where%20to%20stow%20their%20goods.%20Once%20you're%20all%20ready,%20she%20takes%20you%20to%20the%20staircase%20that%20leads%20to%20the%20guest%20quarters%20and%20assigns%20you%20to%20your%20room.%22%5D,%5B%22%22%5D,%5B%22%5C%22One%20hour%20until%20we%20lift%20off.%20Get%20comfortable,%20and%20wait%20for%20the%20announcement%20that%20it's%20safe%20to%20move%20into%20the%20kitchen%20and%20lounge%20area.%20Dinner%20will%20be%20in%20three%20hours%20ship's%20time,%20unless%20there's%20bad%20travel%20conditions.%5C%22%22%5D,%5B%22%22%5D,%5B%22Your%20cabin%22,%22CABIN%22%5D,%5B%22%22%5D%5D,%22CABIN%22:%5B%5B%22Your%20cabin%20is%20spare,%20but%20clean%20and%20comfortable.%20You%20sense%20that%20there's%20something%20that%20no%20one's%20telling%20you%20about%20this%20ship%20and%20this%20crew,%20but%20you%20don't%20sense%20danger,%20and%20you%20decide%20to%20stay.%20After%20all,%20you%20just%20want%20the%20adventure,%20and%20what%20better%20way%20to%20have%20one.%22%5D,%5B%22%22%5D,%5B%22%22%5D%5D%7D";
+
+var gameState = null;
+
+
+var aurl = document.createElement('a');
+function qualifyURL(url) {
+ aurl.href = url;
+ return aurl.href;
+}
+
+function getParameterByName(name) {
+    name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        results = regex.exec(location.search);
+    return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+
+function strip_http(url) {
+   url = url.replace(/^https?:\/\//,'');
+   return url;
+}
+
+function startSection(){
+  if (gameState==null){
+    return "";
+  }
+  var param = getParameterByName("section");
+
+  var result = "__STARTSECTION__" in gameState ? gameState["__STARTSECTION__"] : "START";
+  if (param.length>0){
+    result=param;
+  }
+
+  return result;
+}
+
+function init(){
+	if (embedDat.length>0 && embedDat[0]!=='_'){
+		var dat = decodeURI(embedDat);
+		gameState = JSON.parse(dat);
+    var startKey = startSection();
+		goTo(startKey);
+		return;
+	}
+
+var id = getParameterByName("p").replace(/[\\\/]/,"");
+  if (id===null||id.length===0) {
+    console.log("No ID specified in URL.")
+    return;
+  }
+
+  var githubURL = 'https://api.github.com/gists/'+id;
+
+  var githubHTTPClient = new XMLHttpRequest();
+  githubHTTPClient.open('GET', githubURL);
+  githubHTTPClient.onreadystatechange = function() {
+    if(githubHTTPClient.readyState!=4) {
+      return;
+    }   
+    var result = JSON.parse(githubHTTPClient.responseText);
+    if (githubHTTPClient.status===403) {
+      console.log(result.message);
+    } else if (githubHTTPClient.status!==200&&githubHTTPClient.status!==201) {
+      console.log("HTTP Error "+ githubHTTPClient.status + ' - ' + githubHTTPClient.statusText);
+    }
+    var result = JSON.parse(githubHTTPClient.responseText);
+    var code=result["files"]["game.txt"]["content"];
+    console.log(code);
+
+	gameState = JSON.parse(code);
+	goTo(startSection());
+  }
+  githubHTTPClient.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+  githubHTTPClient.send();
+
+	goTo(startSection());
+}	
+
+function escapeHtmlEntities (str) {
+  if (typeof jQuery !== 'undefined') {
+    // Create an empty div to use as a container,
+    // then put the raw text in and get the HTML
+    // equivalent out.
+    return jQuery('<div/>').text(str).html();
+  }
+
+  // No jQuery, so use string replace.
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/>/g, '&gt;')
+    .replace(/</g, '&lt;')
+    .replace(/"/g, '&quot;');
+}
+
+function goTo(targetState){
+  if (gameState==null){
+    return;
+  }
+	var curstate = gameState[targetState];
+	var gameArea = document.getElementById("gameArea");
+	var str = "";
+	for (var i=0;i<curstate.length;i++){
+		var l = curstate[i];
+		if (l.length==1){			
+			str+=escapeHtmlEntities(l[0])+"<br>";
+		} else if (l.length==2){
+			str+='<a href="#" onclick="goTo(\''+escapeHtmlEntities(l[1])+'\');return false;">'+escapeHtmlEntities(l[0])+'</a><br>';
+		}	
+	}
+	gameArea.innerHTML=str;
+}
+
+</script>
+</head>
+<body onload="init();" dir="auto">
+<div id="gameArea" dir="auto"></div>
+</body>
+</html>
